@@ -1643,3 +1643,251 @@ body {
     padding: 100px 0;
     background: var(--primary-black);
 } 
+
+/* Announcements Section */
+.announcements-section {
+    padding: 100px 0;
+    background: var(--primary-black);
+}
+
+.announcement-card {
+    background: var(--secondary-black);
+    padding: 50px 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.announcement-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--gradient-gold);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.announcement-card:hover::before {
+    transform: scaleX(1);
+}
+
+.announcement-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+    box-shadow: 0 20px 40px rgba(212, 175, 55, 0.1);
+}
+
+.announcement-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.announcement-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.announcement-header h2 {
+    color: var(--gold);
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.announcement-date {
+    color: var(--light-grey);
+    font-size: 1rem;
+    font-style: italic;
+}
+
+.announcement-content {
+    color: var(--light-grey);
+    line-height: 1.8;
+}
+
+.announcement-section {
+    margin-bottom: 30px;
+}
+
+.announcement-section h3 {
+    color: var(--white);
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.announcement-section p {
+    margin-bottom: 15px;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.announcement-section strong {
+    color: var(--white);
+    font-weight: 600;
+}
+
+.contact-box {
+    background: rgba(212, 175, 55, 0.05);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 10px;
+    padding: 25px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.contact-box h4 {
+    color: var(--gold);
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.contact-box p {
+    margin-bottom: 0;
+    color: var(--light-grey);
+}
+
+.contact-box a {
+    color: var(--gold);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.contact-box a:hover {
+    color: var(--gold-light);
+}
+
+.warning-section {
+    background: rgba(255, 193, 7, 0.05);
+    border: 1px solid rgba(255, 193, 7, 0.2);
+    border-radius: 10px;
+    padding: 25px;
+    margin: 30px 0;
+}
+
+.warning-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.warning-icon {
+    font-size: 2rem;
+}
+
+.warning-header h3 {
+    color: #ffc107;
+    margin-bottom: 0;
+    font-size: 1.3rem;
+}
+
+.warning-section p {
+    color: var(--light-grey);
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+.announcement-footer {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+    text-align: center;
+}
+
+.signature-section {
+    display: inline-block;
+}
+
+.signature-line {
+    width: 200px;
+    height: 2px;
+    background: var(--gold);
+    margin: 0 auto 15px;
+}
+
+.signature-text {
+    color: var(--white);
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.signature-title {
+    color: var(--gold);
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.signature-date {
+    color: var(--light-grey);
+    font-size: 0.8rem;
+    font-style: italic;
+}
+
+/* Responsive Design for Announcements */
+@media (max-width: 768px) {
+    .announcement-card {
+        padding: 30px 20px;
+        margin: 0 15px;
+    }
+    
+    .announcement-header h2 {
+        font-size: 2rem;
+    }
+    
+    .announcement-icon {
+        font-size: 3rem;
+    }
+    
+    .contact-box {
+        padding: 20px;
+    }
+    
+    .warning-section {
+        padding: 20px;
+    }
+    
+    .signature-line {
+        width: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .announcement-card {
+        padding: 25px 15px;
+        margin: 0 10px;
+    }
+    
+    .announcement-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .announcement-section h3 {
+        font-size: 1.2rem;
+    }
+    
+    .contact-box {
+        padding: 15px;
+    }
+    
+    .warning-section {
+        padding: 15px;
+    }
+    
+    .signature-line {
+        width: 120px;
+    }
+} 
