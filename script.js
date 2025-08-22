@@ -1,12 +1,6 @@
 // DOM Content Loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Clear localStorage for testing to ensure popup shows
-    localStorage.removeItem('arHoldingsObituarySeen');
-    
-    // Initialize obituary popup first
-    initObituaryPopup();
-    
-    // Initialize all other functionality after popup is handled
+    // Initialize all functionality
     initNavigation();
     initScrollEffects();
     initTimeline();
@@ -16,94 +10,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initSmoothScrolling();
     initParallaxEffects();
 });
-
-// Obituary Popup functionality
-function initObituaryPopup() {
-    const obituaryOverlay = document.getElementById('obituaryOverlay');
-    const obituaryClose = document.getElementById('obituaryClose');
-    const obituaryContinue = document.getElementById('obituaryContinue');
-    const mainWebsite = document.getElementById('mainWebsite');
-    
-    // Only show obituary popup on the main page (index.html)
-    if (!obituaryOverlay || !mainWebsite) {
-        return; // Not on main page, exit
-    }
-    
-    // Check if user has already seen the obituary (using localStorage)
-    const hasSeenObituary = localStorage.getItem('arHoldingsObituarySeen');
-    
-    if (hasSeenObituary) {
-        // User has seen it before, show main website directly
-        obituaryOverlay.classList.add('hidden');
-        mainWebsite.classList.add('visible');
-        document.body.style.overflow = 'auto';
-    } else {
-        // First time visitor, show obituary popup
-        document.body.style.overflow = 'hidden';
-        
-        // Add entrance animation for obituary
-        setTimeout(() => {
-            obituaryOverlay.style.opacity = '1';
-            obituaryOverlay.style.visibility = 'visible';
-        }, 100);
-    }
-    
-    // Handle close button (X)
-    if (obituaryClose) {
-        obituaryClose.addEventListener('click', (e) => {
-            e.preventDefault();
-            closeObituaryPopup();
-        });
-    }
-    
-    // Handle continue button
-    if (obituaryContinue) {
-        obituaryContinue.addEventListener('click', (e) => {
-            e.preventDefault();
-            closeObituaryPopup();
-        });
-    }
-    
-    // Handle escape key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && !obituaryOverlay.classList.contains('hidden')) {
-            closeObituaryPopup();
-        }
-    });
-    
-    // Handle clicking outside the popup
-    obituaryOverlay.addEventListener('click', (e) => {
-        if (e.target === obituaryOverlay) {
-            closeObituaryPopup();
-        }
-    });
-    
-    function closeObituaryPopup() {
-        // Mark as seen
-        localStorage.setItem('arHoldingsObituarySeen', 'true');
-        
-        // Hide obituary popup immediately
-        obituaryOverlay.classList.add('hidden');
-        obituaryOverlay.style.display = 'none';
-        
-        // Show main website immediately
-        mainWebsite.classList.add('visible');
-        mainWebsite.style.opacity = '1';
-        mainWebsite.style.visibility = 'visible';
-        document.body.style.overflow = 'auto';
-        
-        // Trigger hero animations after a short delay
-        setTimeout(() => {
-            const heroElements = document.querySelectorAll('.hero-title, .hero-subtitle, .hero-description, .hero-buttons');
-            heroElements.forEach((element, index) => {
-                setTimeout(() => {
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
-                }, index * 300);
-            });
-        }, 100);
-    }
-}
 
 // Navigation functionality
 function initNavigation() {
